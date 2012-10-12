@@ -1,0 +1,31 @@
+<language-addon>
+    <addon-name>acez</addon-name>
+  	<version>
+		<version-class>org.zkoss.addon.Version</version-class>
+		<version-uid>0.8.0-SNAPSHOT</version-uid>
+		<zk-version>6.5.1</zk-version><!-- or later -->
+	</version>
+    
+	<language-name>xul/html</language-name>
+	<component>
+		<component-name>ace</component-name> <!-- required -->
+		<component-class>org.zkoss.addon.Ace</component-class> <!-- required -->
+		<text-as>value</text-as>
+		<widget-class>acez.Ace</widget-class> <!-- required -->
+		<mold>
+			<mold-name>default</mold-name>
+			<!--
+			== Tip in advance ==
+				You don't have to specify a css.dsp if you need not ,
+				but usually you need it.
+
+				You could assign a .css file ,too.
+
+				The css.dsp is almost as same as CSS file ,
+				but have more powerful enhancement.	(like EL support.)
+			====
+			-->
+			<css-uri>css/ace.css.dsp</css-uri>
+		</mold>
+	</component>
+</language-addon>

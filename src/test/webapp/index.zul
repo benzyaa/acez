@@ -1,0 +1,30 @@
+<zk>
+<zscript><![CDATA[
+String[] scripts = {"asciidoc","c_cpp","c9search","clojure","coffee","coldfusion","csharp","css","diff","glsl","golang","groovy","haxe","html","jade","java","javascript","json","jsp","jsx","latex","less","liquid","lua","luapage","markdown","ocaml","perl","pgsql","php","powershell","python","ruby","scad","scala","scss","sh","sql","svg","tcl","text","textile","typescript","xml","xquery","yaml"};
+ListModelList scriptsModel = new ListModelList(scripts);
+scriptsModel.addSelection("javascript");
+String[] themes = {"ambiance","chrome","clouds_midnight","clouds","cobalt","crimson_editor","dawn","dreamweaver","eclipse","github","idle_fingers","kr_theme","merbivore_soft","merbivore","mono_industrial","monokai","pastel_on_dark","solarized_dark","solarized_light","textmate","tomorrow_night_blue","tomorrow_night_bright","tomorrow_night_eighties","tomorrow_night","tomorrow","twilight","vibrant_ink","xcode"};
+ListModelList themesModel = new ListModelList(themes);
+themesModel.addSelection("eclipse");
+]]></zscript>
+<selectbox model="${scriptsModel}" onSelect='myComp.setMode(event.getSelectedObjects().iterator().next());'>
+    <template name="model">
+       ${each}
+    </template>
+</selectbox>
+<selectbox model="${themesModel}" onSelect='myComp.setTheme(event.getSelectedObjects().iterator().next());'>
+    <template name="model">
+       ${each}
+    </template>
+</selectbox>
+		<ace id="myComp" width="400px" height="300px" mode="javascript"
+			theme="eclipse"
+			onChange="label.value = self.value"><![CDATA[
+function foo(items, nada) {
+	for (var i=0; i<items.length; i++) {
+		alert(items[i] + "juhu\n");
+	}	// Real Tab.
+}
+		]]></ace>		
+	<label id="label" pre="true" multiline="true"/>
+</zk>

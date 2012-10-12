@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	ZK Widget Package Definition
+
+	ZK will load javascript by WPD , (i.e. zk.wpd , zul.inp.wpd ...etc )
+	that means all the widget definition in the package will be packed into single file in runtime ,
+	and be loaded when the component is accessed.
+
+	== Tip in advance ==
+	  To prevent too many client Javascript requests for speeding up the loading,
+	  sometimes you will consider to merge multiple packages in lang-addon.xml .
+	  (@see lang-addon.xml)
+
+	  We are not promising anything about the merging config ,
+	  you have to check the order and dependency carefully when you merge it,
+	  especially the dependency for "zul.lang" , it couldn't be merged with any package.
+	====
+
+
+	Options:
+
+	* depends
+
+		If you are developing your own package ,
+		and you need to access a existing widget (ex.zul.db.Datebox)  ,
+		which your widget inherit from or need to instance for ,
+
+		that means your package count on the package (ex. "zul.db") ,
+		then you have to specify the package as "depends".
+
+		i.e.
+		<package name="my.package.name" language="xul/html" depends="zul.db">
+			<widget name="MyWidget" />
+		</package>
+
+		You might depend multiple packages , use comma to separate them.
+		i.e. depends="zk.fmt,zul.inp"
+
+		When ZK try to load the package , it will load the dependency first.
+
+-->
+<package name="acez" language="xul/html" depends="zul" >
+	<script><![CDATA[
+	var scripts = document.getElementsByTagName("script");
+	for (var i = 0, j = scripts.length; i < j; i++) {
+		if (scripts[i].src) {
+			scripts[i].setAttribute('data-ace-base', zk.ajaxURI('/web/js/acez/ext',{au:true}));
+			break;
+		}
+	}
+	]]></script>
+	<script src="ext/ace.js" />
+	<!-- Mode -->
+	<script src="ext/mode-asciidoc.js"/>
+	<script src="ext/mode-c_cpp.js"/>
+	<script src="ext/mode-c9search.js"/>
+	<script src="ext/mode-clojure.js"/>
+	<script src="ext/mode-coffee.js"/>
+	<script src="ext/mode-coldfusion.js"/>
+	<script src="ext/mode-csharp.js"/>
+	<script src="ext/mode-css.js"/>
+	<script src="ext/mode-diff.js"/>
+	<script src="ext/mode-glsl.js"/>
+	<script src="ext/mode-golang.js"/>
+	<script src="ext/mode-groovy.js"/>
+	<script src="ext/mode-haxe.js"/>
+	<script src="ext/mode-html.js"/>
+	<script src="ext/mode-jade.js"/>
+	<script src="ext/mode-java.js"/>
+	<script src="ext/mode-javascript.js"/>
+	<script src="ext/mode-json.js"/>
+	<script src="ext/mode-jsp.js"/>
+	<script src="ext/mode-jsx.js"/>
+	<script src="ext/mode-latex.js"/>
+	<script src="ext/mode-less.js"/>
+	<script src="ext/mode-liquid.js"/>
+	<script src="ext/mode-lua.js"/>
+	<script src="ext/mode-luapage.js"/>
+	<script src="ext/mode-markdown.js"/>
+	<script src="ext/mode-ocaml.js"/>
+	<script src="ext/mode-perl.js"/>
+	<script src="ext/mode-pgsql.js"/>
+	<script src="ext/mode-php.js"/>
+	<script src="ext/mode-powershell.js"/>
+	<script src="ext/mode-python.js"/>
+	<script src="ext/mode-ruby.js"/>
+	<script src="ext/mode-scad.js"/>
+	<script src="ext/mode-scala.js"/>
+	<script src="ext/mode-scss.js"/>
+	<script src="ext/mode-sh.js"/>
+	<script src="ext/mode-sql.js"/>
+	<script src="ext/mode-svg.js"/>
+	<script src="ext/mode-tcl.js"/>
+	<script src="ext/mode-text.js"/>
+	<script src="ext/mode-textile.js"/>
+	<script src="ext/mode-typescript.js"/>
+	<script src="ext/mode-xml.js"/>
+	<script src="ext/mode-xquery.js"/>
+	<script src="ext/mode-yaml.js"/>
+	
+	<!-- Theme -->
+	<script src="ext/theme-ambiance.js"/>
+	<script src="ext/theme-chrome.js"/>
+	<script src="ext/theme-clouds_midnight.js"/>
+	<script src="ext/theme-clouds.js"/>
+	<script src="ext/theme-cobalt.js"/>
+	<script src="ext/theme-crimson_editor.js"/>
+	<script src="ext/theme-dawn.js"/>
+	<script src="ext/theme-dreamweaver.js"/>
+	<script src="ext/theme-eclipse.js"/>
+	<script src="ext/theme-github.js"/>
+	<script src="ext/theme-idle_fingers.js"/>
+	<script src="ext/theme-kr_theme.js"/>
+	<script src="ext/theme-merbivore_soft.js"/>
+	<script src="ext/theme-merbivore.js"/>
+	<script src="ext/theme-mono_industrial.js"/>
+	<script src="ext/theme-monokai.js"/>
+	<script src="ext/theme-pastel_on_dark.js"/>
+	<script src="ext/theme-solarized_dark.js"/>
+	<script src="ext/theme-solarized_light.js"/>
+	<script src="ext/theme-textmate.js"/>
+	<script src="ext/theme-tomorrow_night_blue.js"/>
+	<script src="ext/theme-tomorrow_night_bright.js"/>
+	<script src="ext/theme-tomorrow_night_eighties.js"/>
+	<script src="ext/theme-tomorrow_night.js"/>
+	<script src="ext/theme-tomorrow.js"/>
+	<script src="ext/theme-twilight.js"/>
+	<script src="ext/theme-vibrant_ink.js"/>
+	<script src="ext/theme-xcode.js"/>
+	
+	<widget name="Ace" />
+</package>
